@@ -46,3 +46,5 @@ https://restcountries.eu/rest/v2/currency/cop
 fixer currency convert
 https://data.fixer.io/api/convert
 http://apilayer.net/api/convert
+
+http://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428

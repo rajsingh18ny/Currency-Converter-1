@@ -1,0 +1,21 @@
+.main-panel1 {
+    margin-top: 200px;
+}
+
+div.row{
+    padding: 10px;
+}
+
+.header {
+    background-color: darkblue;
+    color: white;
+    font-weight: bold;
+}
+
+.panel{
+    border-color: darkblue
+}
+
+#display{
+    display:none;
+}
