@@ -14,9 +14,15 @@ $.ajax({
     $("#inputCountry1").append('<option value =' + response[239].name + '>' + response[239].name + "-" + response[239].currencies[0].code + '</option>' + "<br>");
     for (var i = 0; i < response.length; i++) {
       //  console.log(response[i].name);
+      $("#inputCountry2").append('<option value ="' + response[i].name +
+      "-" + response[i].currencies[0].code + '">' + response[i].name +
+      "-" + response[i].currencies[0].code + '</option>' + "<br>");
+     
 
-      $("#inputCountry2").append('<option value =' + response[i].currencies[0].code + '-' + response[i].currencies[0].symbol + '>' + response[i].name + "-" + response[i].currencies[0].code + '</option>' + "<br>");
     }
+    var country = $("#inputCountry2").val().split("-")
+    var countryname;
+    console.log(countryname)
     // console.log(response[42].currencies[0].code);
     //console.log(response.name[0]);
     var queryURL = "http://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428&currencies=CAD,CNY,EUR,GBP,MXN,SAR,INR";
@@ -41,14 +47,18 @@ $.ajax({
     //ul2
     $("#submit").on("click", function (event) {
       event.preventDefault()
+      $("#articles").empty()
       $('#display').empty()
       $('#rate').empty()
+      country = $("#inputCountry2").val().split("-")
+      var currencycode = country[1]
       var currencycode = $("#inputCountry2").val();
-      var field = currencycode.split('-');
-      console.log("code:", field[0]);
-      console.log(field[1]);
+            countryname = country[0]
+      //var field = currencycode.split('-');
+      console.log("code:", currencycode);
+      //console.log(field[1]);
 
-      var queryURL = `http://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428&currencies=${field[0]}`;
+      var queryURL = `http://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428&currencies=${currencycode}`;
 
       // Performing an AJAX request with the queryURL
       $.ajax({
@@ -93,8 +103,41 @@ $.ajax({
            $('#form').hide();
             $("#display").append(result)
         });
-
+             getnews()
+    var map = $("<img>").attr("src", "https://maps.googleapis.com/maps/api/staticmap?center=" + countryname +  "&zoom=8&size=600x300&maptype=roadmap&key=AIzaSyCY4ikZrWDzixZRNFVjpj7nwYtXar2ehKg")
+    $("#map").append(map)
+               
         });
+
+        function getnews ()
+        {
+            var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+            url += '?' + $.param({
+              'api-key': "a9ecb5738d60419e8e79c89bba6714d4",
+              'q': countryname
+              
+          });
+            console.log(countryname)
+              $.ajax({
+                url: url,
+                method: 'GET',
+              }).done(function(result) 
+                    {
+                      console.log(result);
+                      console.log(result.response.docs[4].snippet)
+                      var snip = result.response.docs
+          
+                          for (var i=0; i< snip.length; i++ )
+                          {
+                            var weburl = result.response.docs[i].web_url
+                            var snippet = result.response.docs[i].snippet
+                            $("#articles").append("<div>"+"<a target=_blank  href="+ weburl +">" + snippet + "<br>"+"</div>")
+                          }
+                    }).fail(function(err) 
+                    {
+                         throw err;
+                    });
+                  }  
        ////next ajax call
     //  var qURL = ;
 
