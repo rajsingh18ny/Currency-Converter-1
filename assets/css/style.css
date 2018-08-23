@@ -1,21 +1,116 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-image:url("../images/Fixed.jpg");
+    padding: 0px;
+    margin: 0px;
+   
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: 100%;    
+}
+
 .main-panel1 {
     margin-top: 200px;
 }
 
 div.row{
-    padding: 10px;
+    text-align: center;
+    color:white;
+    padding: 0px;
 }
 
-.header {
-    background-color: darkblue;
-    color: white;
+header {
+    background-color:#1f1f14;
+    color:white;
     font-weight: bold;
+    text-align: center;
+    font-size:30px;
+    height:80px;
+    width:100%;
+    padding-top: 15px;
+    border-radius:5px;
 }
 
 .panel{
     border-color: darkblue
 }
 
-#display{
+
+#form{
+    margin:auto;
+  padding: 40px;
+}
+
+.amount{
+  
+  font-style: italic;
+  color:white;
+  font-size: 30px;
+}
+
+.country{
+  color: green
+}
+.main-panel1 {
+    margin-top: 200px;
+}
+#result{
     display:none;
+    background-color:#1f1f14;
+    height:150px;
+    width: 350px;
+    margin:auto;
+}
+
+div.form-row{
+    margin:80px 0px 0px 300px;
+    padding: 10px;
+}
+
+
+
+.panel{
+    border-color: darkblue
+}
+
+#display{
+    margin-top:30px;
+    text-align: center;
+    color:white
+}
+
+#rate{
+    margin-top:30px;
+    text-align: center;
+    font-size:15px;
+    font-weight: bold;
+    color:white
+}
+
+#form{
+  padding: 40px;
+}
+
+footer{
+    background-color:#1f1f14;
+    position: fixed;
+    bottom:0px;
+    left:0;
+    height:35px;
+    width:100%; 
+    text-align: center;
+    color:white;
+     
+    border-radius:5px;
+}
+#live{
+    color:white;
+}
+.col-md-1{
+
+    width:100px;
+    margin:0px;
+    padding:0px;
 }
