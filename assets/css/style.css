@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    background-image:url("../images/FullScreenLogo.png");
+    background-image:url("../images/Fixed.jpg");
     padding: 0px;
     margin: 0px;
    
@@ -16,7 +16,9 @@ body{
 }
 
 div.row{
-    padding: 10px;
+    text-align: center;
+    color:white;
+    padding: 0px;
 }
 
 header {
@@ -75,7 +77,8 @@ div.form-row{
 
 #display{
     margin-top:30px;
-    text-align: center
+    text-align: center;
+    color:white
 }
 
 #rate{
