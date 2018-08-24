@@ -1,6 +1,10 @@
 *{
     box-sizing: border-box;
 }
+html {
+    height: 100%;
+    width: 100%;
+}
 body{
     background-image:url("../images/Fixed.jpg");
     padding: 0px;
@@ -61,7 +65,8 @@ header {
     background-color:#1f1f14;
     height:150px;
     width: 350px;
-    margin:auto;
+    position: relative;
+    float: left
 }
 
 div.form-row{
@@ -113,4 +118,48 @@ footer{
     width:100px;
     margin:0px;
     padding:0px;
+}
+#img-1{
+    height:20px;
+    width:30px
+}
+#img{
+    position:relative;
+    padding:0px;
+    margin:0px
+}
+#articles{
+    border: 1px white solid;
+    float:right;
+}
+
+
+
+@media only screen and (max-width: 960px) {
+    body {
+        /* background-color: lightblue; */
+        background-image:url("../images/Fixed.jpg");
+        background-repeat: no-repeat;
+        background-position: cover;
+        background-size:cover;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-image:url("../images/Fixed.jpg");
+        background-repeat: no-repeat;
+        background-position: cover;
+        background-size:cover;
+    }
+}
+
+
+@media only screen and (max-width: 640px) {
+    body {
+        background-image:url("../images/Fixed.jpg");
+        background-repeat: no-repeat;
+        background-position: cover;
+        background-size: cover
+    }
 }
