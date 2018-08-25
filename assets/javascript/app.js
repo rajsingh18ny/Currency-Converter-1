@@ -179,7 +179,7 @@ $("#inputCountry1").append('<option value =' + response[239].name + '>'+ respons
       $("#result").hide()
       $("#back").hide()
       $(".card").hide();
-$(".card-header").hide();
+      $(".card-header").hide();
       
     });
 
@@ -190,7 +190,7 @@ function show(){
   $("#result").show()
   $("#map").show()
   $(".card").show();
-$(".card-header").show();
+   $(".card-header").show();
 
 }
 
