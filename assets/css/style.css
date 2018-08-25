@@ -111,7 +111,7 @@ footer{
     width:100%; 
     text-align: center;
     color:white;
-     
+   margin-top:10px;  
     border-radius:5px;
 }
 #live{
@@ -130,7 +130,7 @@ footer{
 #img{
     position:relative;
     padding:0px;
-    margin:0px
+    margin-bottom:10px
 }
 .col-auto{
     align-content: center;
@@ -139,6 +139,7 @@ footer{
 
 #map{
     align-content: center;
+    margin-bottom: 50px;
 }
 
 #articles{
@@ -396,7 +397,6 @@ footer{
     width:100%; 
     text-align: center;
     color:white;
-     
     border-radius:5px;
 }
 #live{
@@ -480,11 +480,6 @@ header {
     padding-top: 15px;
     border-radius:5px;
 }
-
-.panel{
-    border-color: darkblue
-}
-
 
 
 
