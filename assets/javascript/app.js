@@ -1,6 +1,8 @@
 
 
 let button = $("#back").hide()
+$(".card").hide();
+$(".card-header").hide();
 //check response from the 2 api selected
 var queryURL = "https://restcountries.eu/rest/v2/all?fields=name;currencies;flag";
 
@@ -63,6 +65,7 @@ $("#inputCountry1").append('<option value =' + response[239].name + '>'+ respons
       $('#display').empty()
       $('#rate').empty()
       $("#map").empty()
+      
       country = $("#inputCountry2").val().split("-")
       var currencycode = country[1]
       //var currencycode = $("#inputCountry2").val();
@@ -175,7 +178,8 @@ $("#inputCountry1").append('<option value =' + response[239].name + '>'+ respons
       $("#map").hide()
       $("#result").hide()
       $("#back").hide()
-      $("card-")
+      $(".card").hide();
+$(".card-header").hide();
       
     });
 
@@ -184,8 +188,9 @@ function show(){
   $("#display").show()
   $("#rate").show()
   $("#result").show()
-  
   $("#map").show()
+  $(".card").show();
+$(".card-header").show();
 
 }
 
