@@ -1,7 +1,8 @@
 
 
+let button = $("#back").hide()
 //check response from the 2 api selected
-var queryURL = "https://restcountries.eu/rest/v2/all?fields=name;currencies";
+var queryURL = "https://restcountries.eu/rest/v2/all?fields=name;currencies;flag";
 
 // Performing an AJAX request with the queryURL
 $.ajax({
@@ -11,15 +12,25 @@ $.ajax({
   // After data comes back from the request
   .then(function (response) {
     console.log(response);
-    $("#inputCountry1").append('<option value =' + response[239].name + '>' + response[239].name + "-" + response[239].currencies[0].code + '</option>' + "<br>");
+   
+   
+    //$("#inputCountry1").append()
+  //$("#img-1").append("<img src ="+ response[239].flag +">")
+$("#inputCountry1").append('<option value =' + response[239].name + '>'+ response[239].name + "-" + response[239].currencies[0].code + '</option>' + "<br>");
+// $("#inputCountry1").append()   
+
+
     for (var i = 0; i < response.length; i++) {
       //  console.log(response[i].name);
+        // $("#img-2").append("<img src ="+ response[i].flag +">")
       $("#inputCountry2").append('<option value ="' + response[i].name +
-      "-" + response[i].currencies[0].code +"-"+ response[i].currencies[0].symbol +'">' + response[i].name +
+      "-" + response[i].currencies[0].code +"-"+ response[i].currencies[0].symbol +'">'+ response[i].name +
       "-" + response[i].currencies[0].code + '</option>' + "<br>");
-     
+         }
 
-    }
+
+        
+    //$(".#img2").append("<div class = 'col-2'><img src ="+response[239].flag+">"+ "USD"+"<br>" + "1"+ "</div>");
     var country = $("#inputCountry2").val().split("-")
     var countryname;
     //console.log(countryname)
@@ -34,24 +45,24 @@ $.ajax({
     })
       // After data comes back from the request
       .then(function (response) {
-        console.log(response.quotes);
-        $(".row").append("<div class = 'col-1'>"+ "USD"+"<br>" + "1" + "</div>");
-        $(".row").append("<div class = 'col-1'>"+ "CAD "+"<br>" +response.quotes.USDCAD + "</div>");
-        $(".row").append("<div class = 'col-1'>"+"CYN "+"<br>" +response.quotes.USDCNY + "</div>");
-        $(".row").append("<div class = 'col-1'>"+"EUR "+"<br>" +response.quotes.USDEUR + "</div>");
-        $(".row").append("<div class = 'col-1'>"+"GBP "+"<br>" +response.quotes.USDGBP + "</div>");
-        $(".row").append("<div class = 'col-1'>"+"INR "+"<br>" +response.quotes.USDINR + "</div>");
-        $(".row").append("<div class = 'col-1'>"+"MXN "+"<br>" +response.quotes.USDMXN + "</div>");
-        $(".row").append("<div class = 'col-1'>"+"SAR "+"<br>" +response.quotes.USDSAR + "</div>");
+        console.log(response);
+        $("#img2").append("<div class = 'col-auto '>"+"USD"+"<br>" + "1"+ "</div>");
+        $("#img2").append("<div class = 'col-auto'>"+ "CAD"+"<br>" +response.quotes.USDCAD + "</div>");
+        $("#img2").append("<div class = 'col-auto'>"+"CYN "+"<br>" +response.quotes.USDCNY + "</div>");
+        $("#img2").append("<div class = 'col-auto'>"+"EUR "+"<br>" +response.quotes.USDEUR + "</div>");
+        $("#img2").append("<div class = 'col-auto'>"+"GBP "+"<br>" +response.quotes.USDGBP + "</div>");
+        $("#img2").append("<div class = 'col-auto'>"+"INR "+"<br>" +response.quotes.USDINR + "</div>");
+        $("#img2").append("<div class = 'col-auto'>"+"MXN "+"<br>" +response.quotes.USDMXN + "</div>");
+        $("#img2").append("<div class = 'col-auto'>"+"SAR "+"<br>" +response.quotes.USDSAR + "</div>");
       });
-//USDCAD: 1.30362USDCNY: 6.847503USDEUR: 0.864102USDGBP: 0.7749USDINR: 69.815033USDMXN: 18.876201USDSAR: 3.75075__proto__: Object
-    //ul2
+
     $("#submit").on("click", function (event) {
       event.preventDefault()
       $('#form').hide();
       $("#articles").empty()
       $('#display').empty()
       $('#rate').empty()
+      $("#map").empty()
       country = $("#inputCountry2").val().split("-")
       var currencycode = country[1]
       //var currencycode = $("#inputCountry2").val();
@@ -105,9 +116,16 @@ $.ajax({
           $("#display").append(result)
         });
              getnews()
-    var map = $("<img>").attr("src", "https://maps.googleapis.com/maps/api/staticmap?center=" + countryname +  "&zoom=8&size=600x300&maptype=roadmap&key=AIzaSyCY4ikZrWDzixZRNFVjpj7nwYtXar2ehKg")
+    // var map = $("<img>").attr("src","https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyCY4ikZrWDzixZRNFVjpj7nwYtXar2ehKg")
+
+
+   
+    var map = $("<img>").attr("src", "https://maps.googleapis.com/maps/api/staticmap?center=" + countryname +  "&zoom=5&size=400x250&maptype=roadmap&key=AIzaSyCY4ikZrWDzixZRNFVjpj7nwYtXar2ehKg")
+
     $("#map").append(map)
-               
+    // console.log(map)
+       $("#back").show(); 
+       show();       
         });
 
         function getnews ()
@@ -132,16 +150,44 @@ $.ajax({
                           {
                             var weburl = result.response.docs[i].web_url
                             var snippet = result.response.docs[i].snippet
+
+                            snippet  = snippet.substring(0,60) + "..."
+
+                            // console.log(snippet)
+                            
+                               
+                           
                             $("#articles").append("<div>"+"<a target=_blank  href="+ weburl +">" + snippet + "<br>"+"</div>")
                           }
                     }).fail(function(err) 
                     {
-                         throw err;
+                        // th#img2 err;
                     });
                   }  
        ////next ajax call
     //  var qURL = ;
 
+    $("#back").on("click",function(){
+      $('#form').show();
+      $("#articles").hide()
+      $('#display').hide()
+      $('#rate').hide()
+      $("#map").hide()
+      $("#result").hide()
+      $("#back").hide()
+      $("card-")
+      
+    });
+
+function show(){
+  $("#articles").show()
+  $("#display").show()
+  $("#rate").show()
+  $("#result").show()
+  
+  $("#map").show()
+
+}
 
     //on submit click take country code from field 1 and assign it to response.source
     //search for country code in field 2 in response.code field and get the rate
