@@ -38,7 +38,7 @@ $("#inputCountry1").append('<option value =' + response[239].name + '>'+ respons
     //console.log(countryname)
     // console.log(response[42].currencies[0].code);
     //console.log(response.name[0]);
-    var queryURL = `https://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428&currencies=CAD,CNY,EUR,GBP,MXN,SAR,INR`;
+    var queryURL = "http://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428&currencies=CAD,CNY,EUR,GBP,MXN,SAR,INR";
 
     // Performing an AJAX request with the queryURL
     $.ajax({
@@ -74,7 +74,7 @@ $("#inputCountry1").append('<option value =' + response[239].name + '>'+ respons
       console.log("code:", currencycode);
       //console.log(field[1]);
 
-      var queryURL = `https://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428&currencies=${currencycode}`;
+      var queryURL = `http://www.apilayer.net/api/live?access_key=7b22f43a5fc06496f1f1de807d226428&currencies=${currencycode}`;
 
       // Performing an AJAX request with the queryURL
       $.ajax({
