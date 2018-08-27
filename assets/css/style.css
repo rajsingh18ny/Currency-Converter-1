@@ -15,7 +15,7 @@ body {
     background-position: cover;
     background-size:cover;
     background-attachment: fixed;
-    /* overflow:scroll; */
+  
 }
 
 
@@ -70,7 +70,8 @@ header {
     height:180px;
     width: 350px;
     position: relative;
-    float: left
+    float: left;
+    margin-top:10px
 }
 
 div.form-row{
@@ -148,14 +149,11 @@ footer{
     font-style: bold;
     color: black;
     position: relative;
-    /* clear: both; */
     float:right;
     width:100%
     
 }
-a {
-    text-decoration: none;
-}
+
 
 
 
@@ -208,7 +206,8 @@ header {
     height:180px;
     width: 350px;
     position: relative;
-    float: left
+    float: left;
+    margin-top:10px
 }
 
 div.form-row{
@@ -286,9 +285,6 @@ footer{
     color: black;
     
 }
-a {
-    text-decoration: none;
-}
 
 }
 
@@ -362,7 +358,8 @@ header {
     height:180px;
     width: 350px;
     position: relative;
-    float: left
+    float: left;
+    margin-top:10px
 }
 
 div.form-row{
@@ -461,9 +458,6 @@ footer{
 
 
     }
-    a {
-        text-decoration: none;
-    }
     
 .main-panel1 {
     margin-top: 200px;
@@ -508,7 +502,8 @@ header {
     height:180px;
     width: 350px;
     position: relative;
-    float: left
+    float: left;
+    margin-top:10px
 }
 
 div.form-row{
